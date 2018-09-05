@@ -87,7 +87,6 @@ function delete_row(rowno)
 					<ul class="nav" id="side-menu">
 						
 						
-						
 <?php 
 include "function/db.php";
 $gid = $_SESSION['gid'];
