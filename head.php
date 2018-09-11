@@ -1,6 +1,6 @@
 <?php session_start();include "function/db.php";
  if($_SESSION['uname'] == false){
-  header('Location:login/index.php');
+  header('Location:pages/login/index.php');
  }
 $nama=$_SESSION['nama'];
  $pos=$_SESSION['posisi'];
@@ -89,16 +89,16 @@ function delete_row(rowno)
 						
 <?php 
 include "function/db.php";
-$ambilmenu=mysqli_query($db,"SELECT * FROM a_menu where parrent_id='0'");
+$ambilmenu=mysqli_query($db,"SELECT * FROM m01_MenuSystem where ParentID='0'");
 while($menu=mysqli_fetch_array($ambilmenu)){
- $prvl=mysqli_fetch_array(mysqli_query($db,"SELECT * from a_groupprivileges where menu_id=$menu[id]")); if ($prvl[permission]!='0') {
+ $prvl=mysqli_fetch_array(mysqli_query($db,"SELECT * from m01_GroupPrivileges where MenuId=$menu[id]")); if ($prvl[permission]!='0') {
 		?>				<li>
 							<a href="<?php echo $menu[link]; ?>"><i class="<?php echo $menu[icon_code];?>"></i><?php echo $menu[menu]; if($menu[link]=='#'){?> <span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 <?php								
-$ambilsubmenu=mysqli_query($db,"SELECT * FROM a_menu where parrent_id=$menu[id]");
+$ambilsubmenu=mysqli_query($db,"SELECT * FROM m01_MenuSystem where ParentId=$menu[id]");
 while($submenu=mysqli_fetch_array($ambilsubmenu)){
-$prvls=mysqli_fetch_array(mysqli_query($db,"SELECT * from a_groupprivileges where menu_id=$submenu[id]")); if ($prvls[permission]!=0) {
+$prvls=mysqli_fetch_array(mysqli_query($db,"SELECT * from m01_GroupPrivileges where MenuId=$submenu[id]")); if ($prvls[permission]!=0) {
 
 
 ?>

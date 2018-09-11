@@ -1,0 +1,21 @@
+SET SQL_MODE='';
+
+CREATE TABLE IF NOT EXISTS `m01_User` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `EmpID` varchar(100) NOT NULL DEFAULT '0',
+  `Username` varchar(100) NOT NULL DEFAULT '0',
+  `Password` varchar(100) NOT NULL DEFAULT '0',
+  `FirtsName` varchar(100) NOT NULL DEFAULT '0',
+  `LastName` varchar(100) NOT NULL DEFAULT '0',
+  `Email` varchar(100) NOT NULL DEFAULT '0',  
+  `AuthorityID` varchar(100) NOT NULL DEFAULT '0',
+  `GroupID` int(11) DEFAULT NULL,
+  `LastLogin` varchar(100) NOT NULL DEFAULT '0',
+  `CreateBy` varchar(50) NOT NULL DEFAULT '0',
+  `CreateAt` Timestamp DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `UpdateBy` varchar(50) NOT NULL DEFAULT '0',
+  `UpdateAt` Timestamp DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `isActive` INT(1) NOT NULL DEFAULT '0',
+  `Flag` INT(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

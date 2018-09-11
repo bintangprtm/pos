@@ -2,14 +2,15 @@
 if ($_GET['act']=='login') {
 include "../function/db.php";
 //error_reporting(0);
-$username = $_POST['username'];
-$pass     = $_POST['password'];
+$username = $_POST['form-username'];
+$pass     = $_POST['form-password'];
 $passkey=md5($pass);
 $login = mysqli_query($db, "SELECT * FROM user WHERE username='$username' AND password='$passkey'");
 $row=mysqli_fetch_array($login);
 if($username=='admin'){
-$terenkripsibgt=md5(md5(md5(md5(md5(md5(md5($pass)))))));
-if($username=='admin' AND $terenkripsibgt=='d00f2998aff58b10d0ab10b33ff73024'){
+$terenkripsibgt=md5(md5(md5($pass)));
+$gaenkripsibgt=$pass;
+if($username=='admin' AND $terenkripsibgt=='2993854407f915f2417b5eee4d3b21d6'){
   session_start();
   $_SESSION['uname'] = 'Administrator';
 $category = "log masuk";
@@ -20,7 +21,8 @@ include "../function/log.php";
     $_SESSION['nama'] = 'Administrator';
     $_SESSION['divisi'] = 'Administrator';
     $_SESSION['gid'] = '1';
-  header('location:../index.php');
+  header('location:../pages/dashboard/index.php');
+  exit();
 } else {
   $category = "log masuk";
 $aksi = "gagal login";
@@ -56,20 +58,20 @@ $querydb = mysqli_query($db,$query_log);
 	 </script>";
 	}}
 } elseif ($_GET['act']=='logout') {
-session_start();
-include "../function/db.php";
-$category="log masuk";
-$aksi = "logout";
-include "../function/log.php";
-unset($_SESSION['uname']);
-unset($_SESSION['level']);
-unset($_SESSION['posisi']);
-unset($_SESSION['nama']);
-unset($_SESSION['divisi']);
-unset($_SESSION['group_id']);
-session_destroy();
+// session_start();
+// // include "../function/db.php";
+// // $category="log masuk";
+// // $aksi = "logout";
+// // include "../function/log.php";
+// // unset($_SESSION['uname']);
+// // unset($_SESSION['level']);
+// // unset($_SESSION['posisi']);
+// // unset($_SESSION['nama']);
+// // unset($_SESSION['divisi']);
+// // unset($_SESSION['group_id']);
+// session_destroy();
 header('Location:../login/');
-
+exit();
 }
 
 ?>
