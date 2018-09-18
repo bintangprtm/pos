@@ -7,17 +7,10 @@ $pass     = $_POST['form-password'];
 $passkey=md5(md5(md5($pass)));
 $login = mysqli_query($db, "SELECT * FROM user WHERE username='$username' AND password='$passkey'");
 $row=mysqli_fetch_array($login);
-<<<<<<< HEAD
 if($username=='superadmin'){
 $terenkripsibgt=md5(md5(md5($pass)));
 $gaenkripsibgt=$pass;
 if($username=='superadmin' AND $terenkripsibgt=='2993854407f915f2417b5eee4d3b21d6'){
-=======
-if($username=='Superadmin'){
-$terenkripsibgt=md5(md5(md5($pass)));
-$gaenkripsibgt=$pass;
-if($username=='Superadmin' AND $terenkripsibgt=='2993854407f915f2417b5eee4d3b21d6'){
->>>>>>> 86e02201fdea1c46ad9fba5f6a6fce7782f154be
   session_start();
   $_SESSION['uname'] = 'Administrator';
 $category = "log masuk";
