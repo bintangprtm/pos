@@ -1,0 +1,17 @@
+.col-form-label {
+  width:100%;
+}
+
+.btn:not(:disabled):not(.disabled) {
+  width:100px;
+  margin-right:10px;
+  margin-top:10px;
+}
+
+.btn:not(:disabled):not(.disabled) {
+}
+
+button, input {
+  margin-top:10px;
+}
+

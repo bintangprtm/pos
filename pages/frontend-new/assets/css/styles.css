@@ -32,7 +32,23 @@ img {
   width:400px;
 }
 
-.row-total {
+.btn-bottom {
+    background-color: #2567BD;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 
+.mg-top1 {
+  margin-top: 8px;
+}
+
+.th-header {
+  background-color: #e3e5e8;
 }
 
