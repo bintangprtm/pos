@@ -4,13 +4,13 @@ include "../function/db.php";
 //error_reporting(0);
 $username = $_POST['form-username'];
 $pass     = $_POST['form-password'];
-$passkey=md5($pass);
+$passkey=md5(md5(md5($pass)));
 $login = mysqli_query($db, "SELECT * FROM user WHERE username='$username' AND password='$passkey'");
 $row=mysqli_fetch_array($login);
-if($username=='admin'){
+if($username=='superadmin'){
 $terenkripsibgt=md5(md5(md5($pass)));
 $gaenkripsibgt=$pass;
-if($username=='admin' AND $terenkripsibgt=='2993854407f915f2417b5eee4d3b21d6'){
+if($username=='superadmin' AND $terenkripsibgt=='2993854407f915f2417b5eee4d3b21d6'){
   session_start();
   $_SESSION['uname'] = 'Administrator';
 $category = "log masuk";
