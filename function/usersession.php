@@ -7,10 +7,17 @@ $pass     = $_POST['form-password'];
 $passkey=md5(md5(md5($pass)));
 $login = mysqli_query($db, "SELECT * FROM user WHERE username='$username' AND password='$passkey'");
 $row=mysqli_fetch_array($login);
+<<<<<<< HEAD
 if($username=='superadmin'){
 $terenkripsibgt=md5(md5(md5($pass)));
 $gaenkripsibgt=$pass;
 if($username=='superadmin' AND $terenkripsibgt=='2993854407f915f2417b5eee4d3b21d6'){
+=======
+if($username=='Superadmin'){
+$terenkripsibgt=md5(md5(md5($pass)));
+$gaenkripsibgt=$pass;
+if($username=='Superadmin' AND $terenkripsibgt=='2993854407f915f2417b5eee4d3b21d6'){
+>>>>>>> 86e02201fdea1c46ad9fba5f6a6fce7782f154be
   session_start();
   $_SESSION['uname'] = 'Administrator';
 $category = "log masuk";
@@ -46,7 +53,7 @@ include "../function/log.php";
     $_SESSION['divisi'] = $row['divisi'];
     $_SESSION['gid'] = $row['group_id'];
     mysqli_query($db,"UPDATE user set last_login='$date' where username='$username' ");
-  header('location:../index.php');
+  header('location:../../pages/dashboard/index.php');
 }
 else{
 $category = "log masuk";
@@ -58,19 +65,19 @@ $querydb = mysqli_query($db,$query_log);
 	 </script>";
 	}}
 } elseif ($_GET['act']=='logout') {
-// session_start();
-// // include "../function/db.php";
-// // $category="log masuk";
-// // $aksi = "logout";
-// // include "../function/log.php";
-// // unset($_SESSION['uname']);
-// // unset($_SESSION['level']);
-// // unset($_SESSION['posisi']);
-// // unset($_SESSION['nama']);
-// // unset($_SESSION['divisi']);
-// // unset($_SESSION['group_id']);
-// session_destroy();
-header('Location:../login/');
+ session_start();
+include "../function/db.php";
+ $category="log masuk";
+$aksi = "logout";
+include "../function/log.php";
+unset($_SESSION['uname']);
+unset($_SESSION['level']);
+unset($_SESSION['posisi']);
+unset($_SESSION['nama']);
+unset($_SESSION['divisi']);
+unset($_SESSION['group_id']);
+session_destroy();
+header('Location:../pages/login/');
 exit();
 }
 
