@@ -47,9 +47,23 @@ img {
     margin: 4px 2px;
     cursor: pointer;
 }
+.btn-set-conf{
+    background-color: red;
+    color: #ffff;
+    border: none;
+    border-radius: 15px;
+    height: 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 2px 2.5px;
+    cursor: pointer;
 
+}
 .btn-money {
-    background-color: #555a63;
+    background-color: #2567BD;
     color: #cdcdcd;
     border: none;
     width: 70px;
@@ -62,15 +76,89 @@ img {
     margin: 2px 2.5px;
     cursor: pointer;
 }
+.btn-operation {
+    background-color: #2567BD;
+    color: #cdcdcd;
+    border: none;
+    width: 108px;
 
-.container-money {
+height: 50px;
+
+text-align: center;
+
+text-decoration: none;
+
+display: inline-block;
+
+font-size: 11px;
+
+font-weight: bold;
+
+margin: 2px 2.5px;
+
+cursor: pointer;
+}
+.method{
+  padding-left: 40%;
+}
+.qty-right{
+  float: right;
+}
+.form-sett{
+      text-align: right;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 20px;
+    font-style: bold;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+        border-top-color: rgb(204, 204, 204);
+        border-right-color: rgb(204, 204, 204);
+        border-bottom-color: rgb(204, 204, 204);
+        border-left-color: rgb(204, 204, 204);
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+
+}
+.between{
+  width: 10px;
+}
+.inpt-disabled{
+  margin-left: 10px;
+}
+.settle{
+  padding-left: 5%;
+  padding-top: 5%;
+  background-color: #fff;
+}
+.button-sett {
+    padding-left: 40%;
+    padding-top: 10%;
+}
+.container-settle {
     border-radius: 25px;
     border: 2px solid #555a63;
     padding: 25px; 
     width: 200px;
-    height: 150px;    
+    height: 150px;
 }
-
+.container-operation {
+    border-radius: 25px;
+    border: 2px solid #555a63;
+    padding: 25px; 
+    width: 400px;
+      
+}
+.item{
+  width: 101%;
+}
 .mg-top1 {
   margin-top: 8px;
 }
@@ -127,7 +215,9 @@ img {
   max-width: 400px;
 }
 
-
+.item-sett{
+  padding-left: 65%;
+}
 .item-panel {
   max-width: 750px;
 }

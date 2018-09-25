@@ -7,7 +7,7 @@
       <?php 
 $page=$_GET['page'];
 if($page=='frontend'){
-  include "../frontend-new/index.html";
+  include "../frontend-new/index.php";
 }else{
 
       ?>
