@@ -1,7 +1,7 @@
 <?php session_start();
 include "../../function/db.php";
  if($_SESSION['uname'] == false){
-  header('Location:pages/login/index.php');
+  header('Location:../../pages/login/index.php');
  }
 $nama=$_SESSION['nama'];
 $pos=$_SESSION['posisi'];
@@ -350,7 +350,7 @@ $ambilmenu=mysqli_query($db,"SELECT * FROM m01_MenuSystem where ParentID='0'");
 while($menu=mysqli_fetch_array($ambilmenu)){
  $prvl=mysqli_fetch_array(mysqli_query($db,"SELECT * from m01_GroupPrivileges where MenuID=$menu[ID] AND GroupID=$gid")); if ($prvl[Permission]!='1') { $hidden="hidden='hidden'"; }
     ?>
-        <li <?php echo $hidden; ?> class="treeview">
+        <li <?php echo $hidden; ?> >
           <a   href="<?php echo $menu[LinkPage]; ?>">
             <i class="<?php echo $menu[IconCode];?>"></i> <span><?php echo $menu[Description]; if($menu[LinkPage]=='#'){?></span>
             <span class="pull-right-container">

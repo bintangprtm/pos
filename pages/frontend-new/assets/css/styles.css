@@ -1,3 +1,7 @@
+.page-main {
+  margin: 0; height: 100%; overflow: hidden;
+}
+
 .col-form-label {
   padding-top:5px;
 }
@@ -44,6 +48,29 @@ img {
     cursor: pointer;
 }
 
+.btn-money {
+    background-color: #555a63;
+    color: #cdcdcd;
+    border: none;
+    width: 70px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 2px 2.5px;
+    cursor: pointer;
+}
+
+.container-money {
+    border-radius: 25px;
+    border: 2px solid #555a63;
+    padding: 25px; 
+    width: 200px;
+    height: 150px;    
+}
+
 .mg-top1 {
   margin-top: 8px;
 }
@@ -51,4 +78,76 @@ img {
 .th-header {
   background-color: #e3e5e8;
 }
+
+.col-25 {
+  width: 25%;
+  float: left;
+}
+
+.col-30 {
+  width: 30%;
+  float: left;
+}
+
+.col-40 {
+  width: 40%;
+  float: left;
+}
+
+.col-50 {
+  width: 50%;
+  float: left;
+}
+
+.col-60 {
+  width: 60%;
+  float: left;
+}
+
+.col-70 {
+  width: 70%;
+  float: left;
+}
+
+.row-in-1 {
+  width: 100%;
+  position: relative;
+}
+
+.row-in {
+  width: 80%;
+  position: relative;
+}
+
+.mg-top-5 {
+  margin-top:5%; 
+}
+
+.transaction-panel {
+  max-width: 400px;
+}
+
+
+.item-panel {
+  max-width: 750px;
+}
+
+.item-panel img{
+  max-width: 80px;
+  max-height: 70px;
+  margin: 5px 20px;
+  border-radius: 15px;
+}
+
+.price-panel {
+  float :right;
+  width:300px;
+}
+
+.price-panel p {
+  font-weight: bold;
+  font-size: 20pt;
+  line-height: 14pt;
+}
+
 
