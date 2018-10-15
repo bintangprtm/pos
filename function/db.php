@@ -10,6 +10,4 @@ $database = 'bkstechpos';
 $db=mysqli_connect("$server","$username","$password","$database");
 $date=date("Y-m-d H:i:s");
 
-
-
 ?>

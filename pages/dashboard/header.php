@@ -28,6 +28,7 @@ $gid=$_SESSION['gid'];
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
   <!-- Morris chart -->
+  <style type="text/css"></style>
   <link rel="stylesheet" href="bower_components/morris.js/morris.css">
   <!-- jvectormap -->
   <link rel="stylesheet" href="bower_components/jvectormap/jquery-jvectormap.css">
@@ -348,9 +349,9 @@ $gid=$_SESSION['gid'];
 include "../../function/db.php";
 $ambilmenu=mysqli_query($db,"SELECT * FROM m01_MenuSystem where ParentID='0'");
 while($menu=mysqli_fetch_array($ambilmenu)){
- $prvl=mysqli_fetch_array(mysqli_query($db,"SELECT * from m01_GroupPrivileges where MenuID=$menu[ID] AND GroupID=$gid")); if ($prvl[Permission]!='1') { $hidden="hidden='hidden'"; }
+ 
     ?>
-        <li <?php echo $hidden; ?> >
+        <li  <?php $prvl=mysqli_fetch_array(mysqli_query($db,"SELECT * from m01_GroupPrivileges where MenuID=$menu[ID] AND GroupID=$gid")); if ($prvl[Permission]!='1') { $hidden="hidden='hidden'"; }else{$hidden="";} echo $hidden; if($menu[LinkPage]=='#'){ echo "class='treeview'";} ?> >
           <a   href="<?php echo $menu[LinkPage]; ?>">
             <i class="<?php echo $menu[IconCode];?>"></i> <span><?php echo $menu[Description]; if($menu[LinkPage]=='#'){?></span>
             <span class="pull-right-container">
@@ -361,9 +362,9 @@ while($menu=mysqli_fetch_array($ambilmenu)){
             <?php               
 $ambilsubmenu=mysqli_query($db,"SELECT * FROM m01_MenuSystem where ParentID=$menu[ID]");
 while($submenu=mysqli_fetch_array($ambilsubmenu)){
-$prvls=mysqli_fetch_array(mysqli_query($db,"SELECT * from m01_GroupPrivileges where MenuID=$submenu[ID] AND GroupID=$gid")); if ($prvls[Permission]!='1') { $shidden="hidden='hidden'"; }
+
 ?>
-            <li <?php echo $shidden; ?>  ><a href="<?php echo $submenu[LinkPage]; ?>"><i class="fa fa-circle-o"></i> <?php echo $submenu[Description]; ?></a></li>
+            <li <?php $prvls=mysqli_fetch_array(mysqli_query($db,"SELECT * from m01_GroupPrivileges where MenuID=$submenu[ID] AND GroupID=$gid")); if ($prvls[Permission]!='1') { $shidden="hidden='hidden'"; }else{$shidden="";}echo $shidden; ?>  ><a href="<?php echo $submenu[LinkPage]; ?>"><i class="fa fa-circle-o"></i> <?php echo $submenu[Description]; ?></a></li>
            <?php } ?>  
           </ul>
           <?php }  else {echo '</span></a>';} ?>

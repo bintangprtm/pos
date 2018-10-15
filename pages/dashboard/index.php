@@ -8,6 +8,24 @@
 $page=$_GET['page'];
 if($page=='frontend'){
   include "../frontend-new/index.php";
+}elseif($page=='userlist'){
+  include "userlist.php";
+}elseif($page=='grouplist'){
+  include "grouplist.php";
+}elseif($page=='groupedit'){
+  include "groupedit.php";
+}elseif($page=='edituser'){
+  include "edituser.php";
+}elseif($page=='terminal'){
+  include "terminal.php";
+}elseif($page=='general'){
+  include "general.php";
+}elseif($page=='loghstr'){
+  include "loghistory.php";
+}elseif($page=='editterminal'){
+  include "editterminal.php";
+}elseif($page=='editgeneral'){
+  include "editgeneral.php";
 }else{
 
       ?>

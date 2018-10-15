@@ -5,56 +5,53 @@ include "../function/db.php";
 $username = $_POST['form-username'];
 $pass     = $_POST['form-password'];
 $passkey=md5(md5(md5($pass)));
-$login = mysqli_query($db, "SELECT * FROM user WHERE username='$username' AND password='$passkey'");
-$row=mysqli_fetch_array($login);
 if($username=='superadmin'){
 $terenkripsibgt=md5(md5(md5($pass)));
 $gaenkripsibgt=$pass;
 if($username=='superadmin' AND $terenkripsibgt=='2993854407f915f2417b5eee4d3b21d6'){
   session_start();
   $_SESSION['uname'] = 'Administrator';
-$category = "log masuk";
-$aksi = "berhasil login";
-include "../function/log.php";
   $_SESSION['level'] = 'Administrator';
     $_SESSION['posisi'] = 'Administrator';
     $_SESSION['nama'] = 'Administrator';
     $_SESSION['divisi'] = 'Administrator';
     $_SESSION['gid'] = '1';
+    $category = "log masuk";
+$aksi = "berhasil login";
+include "log.php";
   header('location:../pages/dashboard/index.php');
   exit();
 } else {
   $category = "log masuk";
 $aksi = "gagal login";
 $ip_address=$_SERVER['REMOTE_ADDR'];
-$query_log = ("INSERT INTO log (log,user,timestamp,category) VALUES ('$username telah $aksi dari ip $ip_address','$username','$tanggal','$category')");
-$querydb = mysqli_query($db,$query_log);
-   echo "<script type='text/javascript'>alert('Maaf Anda Bukan Admin'); window.location.href='../login/';
+include 'log.php';
+   echo "<script type='text/javascript'>alert('Maaf Anda Bukan Admin'); window.location.href='../pages/login/';
    </script>";
 }}else{
+  $login = mysqli_query($db, "SELECT * FROM user WHERE username='$username' AND password='$passkey'");
+$row=mysqli_fetch_array($login);
 if ($row['username'] == $username AND $row['password'] == $passkey)
 {
   session_start();
   
 $category = "log masuk";
 $aksi = "berhasil login";
-include "../function/log.php";
+include "log.php";
   $_SESSION['uname'] = $row['username'];
   $_SESSION['level'] = $row['user_level'];
     $_SESSION['posisi'] = $row['posisi'];
     $_SESSION['nama'] = $row['nama'];
     $_SESSION['divisi'] = $row['divisi'];
     $_SESSION['gid'] = $row['group_id'];
-    mysqli_query($db,"UPDATE user set last_login='$date' where username='$username' ");
-  header('location:../../pages/dashboard/index.php');
+    mysqli_query($db,"UPDATE m01_user set LastLogin='$date' where Username='$username' ");
+  header('location:../pages/dashboard/index.php');
 }
 else{
 $category = "log masuk";
 $aksi = "gagal login";
-$ip_address=$_SERVER['REMOTE_ADDR'];
-$query_log = ("INSERT INTO log (log,user,timestamp,category) VALUES ('$username telah $aksi dari ip $ip_address','$username','$tanggal','$category')");
-$querydb = mysqli_query($db,$query_log);
-	 echo "<script type='text/javascript'>alert('USERNAME/PASSWORD SALAH!'); window.location.href='../login/';
+include 'log.php';
+	 echo "<script type='text/javascript'>alert('USERNAME/PASSWORD SALAH!'); window.location.href='../pages/login';
 	 </script>";
 	}}
 } elseif ($_GET['act']=='logout') {

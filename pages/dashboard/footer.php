@@ -25,8 +25,31 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+    $.widget.bridge('uibutton', $.ui.button);
+  var modal = document.getElementById('modal-authority');
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 </script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#modal-authority').on('show.bs.modal', function (e) {
+            var rowid = $(e.relatedTarget).data('id');
+            //menggunakan fungsi ajax untuk pengambilan data
+            $.ajax({
+                type : 'post',
+                url : 'authority.php',
+                data :  'rowid='+ rowid,
+                success : function(data){
+                $('.fetched-data').html(data);//menampilkan data ke dalam modal
+                }
+            });
+         });
+    });
+  </script>
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->
