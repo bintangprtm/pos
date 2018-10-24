@@ -7,7 +7,14 @@
       <?php 
 $page=$_GET['page'];
 if($page=='frontend'){
+  $lhtfrnt=mysqli_fetch_array(mysqli_query($db,"SELECT * FROM m02_terminal WHERE ID='1'"));
+  if($lhtfrnt[TypeFrontEnd]=='Store'){
   include "../frontend-new/index.php";
+}elseif($lhtfrnt[TypeFrontEnd]=='Resto'){
+include "../frontend-resto/index.php";
+}elseif($lhtfrnt[TypeFrontEnd]=='Market'){
+include "../frontend-market/index.php";
+}
 }elseif($page=='userlist'){
   include "userlist.php";
 }elseif($page=='grouplist'){
@@ -26,6 +33,8 @@ if($page=='frontend'){
   include "editterminal.php";
 }elseif($page=='editgeneral'){
   include "editgeneral.php";
+}elseif($page=='editprvl'){
+  include "authority.php";
 }else{
 
       ?>

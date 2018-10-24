@@ -10,9 +10,9 @@
                   <th>NO</th>
                   <th>Curency</th>
                   <th>TimeZone</th>
-                  <th>Actions</th>
-                  <th>Update At</th>
+                  <th>Updated At</th>
                   <th>Updated By</th>
+                  <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -25,9 +25,9 @@
                   <td><?php echo $no++; ?></td>
                   <td><?php echo $dtgnrl[Curency]; ?></td>
                   <td><?php echo $dtgnrl[TimeZone]; ?></td>
-                  <td><?php echo $dtgnrl[Updated_At]; ?></td>
-                  <td><?php echo $dtgnrl[Updated_By]; ?></td>
-                  <td><a href="index.php?page=editgeneral&id=<?php echo $dtgnrl[ID] ?>">EDIT</a> | <a href="index.php?func=delete&type=general&id=<?php echo $dtgnrl[ID] ?>">Delete</a></td>
+                  <td><?php echo $dtgnrl[UpdatedAt]; ?></td>
+                  <td><?php echo $dtgnrl[UpdatedBy]; ?></td>
+                  <td><a href="index.php?page=editgeneral&id=<?php echo $dtgnrl[ID] ?>">EDIT</a></td>
                   
                 </tr>
 <?php } ?>

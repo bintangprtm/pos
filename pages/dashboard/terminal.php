@@ -3,6 +3,21 @@
               <h3 class="box-title">TERMINAL</h3>
             </div>
             <!-- /.box-header -->
+
+<div class="modal" id="modal-terminal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header"> Edit Terminal
+                <button onclick="document.getElementById('modal-terminal').style.display='none'" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body popupauth" style="display: none;">
+               
+              </div>
+            </div>
+          </div>
+            </div>
+
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -17,7 +32,7 @@
                 </thead>
                 <tbody>
                 <?php $no = 1; 
-              $qu=mysqli_query($db,"SELECT * from m01_user"); 
+              $qu=mysqli_query($db,"SELECT * from m02_terminal"); 
   
               while ( $dt=mysqli_fetch_array($qu)) {
  ?>
@@ -25,9 +40,9 @@
                   <td><?php echo $no++; ?></td>
                   <td><?php echo $dt[TypeFrontEnd]; ?></td>
                   <td><?php echo $dt[PrinterSet]; ?></td>
-                  <td><?php echo $dt[Updated_At]; ?></td>
-                  <td><?php echo $dt[Updated_By]; ?></td>
-                  <td><a href="index.php?page=editterminal&id=<?php echo $dt[ID] ?>">EDIT</a> | <a href="index.php?func=delete?type=terminal&id=<?php echo $dt[ID] ?>">Delete</a></td>
+                  <td><?php echo $dt[UpdatedAt]; ?></td>
+                  <td><?php echo $dt[UpdatedBy]; ?></td>
+                  <td><a href="#" class="psh" id="<?php echo $dt[ID] ?>">EDIT</a></td>
                   
                 </tr>
 <?php } ?>

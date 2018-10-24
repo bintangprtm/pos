@@ -296,6 +296,7 @@ $gid=$_SESSION['gid'];
                     <a href="#">Friends</a>
                   </div>
                 </div>
+                
                 <!-- /.row -->
               </li>
               <!-- Menu Footer-->
@@ -379,3 +380,4 @@ while($submenu=mysqli_fetch_array($ambilsubmenu)){
     </section>
     <!-- /.sidebar -->
   </aside>
+<?php include 'modaladd.php'; ?>

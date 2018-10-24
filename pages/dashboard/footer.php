@@ -33,23 +33,65 @@ window.onclick = function(event) {
     }
 }
 </script>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="dist/js/jquery.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('#modal-authority').on('show.bs.modal', function (e) {
-            var rowid = $(e.relatedTarget).data('id');
-            //menggunakan fungsi ajax untuk pengambilan data
-            $.ajax({
-                type : 'post',
-                url : 'authority.php',
-                data :  'rowid='+ rowid,
-                success : function(data){
-                $('.fetched-data').html(data);//menampilkan data ke dalam modal
-                }
+  $(function(){
+            $(document).on('click','#action_lihat_auth',function(e){
+                e.preventDefault();
+                $("#modal_lihat_auth").modal('show');
+                $.post('authority.php',
+                    {id:$(this).attr('data-id')},
+                    function(html){
+                        $("#modal_lihat_detail_body").html(html);
+                    }   
+                );
             });
-         });
+        });
+
+$(function(){
+
+   $('.push').click(function(){
+      var essay_id = $(this).attr('id');
+
+       $.ajax({
+          type : 'post',
+           url : 'authority.php', // in here you should put your query 
+          data :  'post_id='+ essay_id, // here you pass your id via ajax .
+                     // in php you should use $_POST['post_id'] to get this value 
+       success : function(r)
+           {
+              // now you can show output in your modal 
+              $('#modal-auth').show();  // put your modal id 
+             $('.popupauth').show().html(r);
+           }
     });
-  </script>
+
+
+});
+
+   });
+   $(function(){
+
+   $('.psh').click(function(){
+      var essay_id = $(this).attr('id');
+
+       $.ajax({
+          type : 'post',
+           url : 'terminaledit.php', // in here you should put your query 
+          data :  'post_id='+ essay_id, // here you pass your id via ajax .
+                     // in php you should use $_POST['post_id'] to get this value 
+       success : function(r)
+           {
+              // now you can show output in your modal 
+              $('#modal-terminal').show();  // put your modal id 
+             $('.popupauth').show().html(r);
+           }
+    });
+
+
+});
+
+   });      </script>
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->

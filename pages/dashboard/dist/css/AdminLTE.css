@@ -2965,6 +2965,14 @@ table.text-center th {
  * Component: modal
  * ----------------
  */
+ .modal {
+      position: relative;
+      top: auto;
+      bottom: auto;
+      right: auto;
+      left: auto;
+      display: block;
+      z-index: 1;}
 .modal {
   background: rgba(0, 0, 0, 0.3);
 }

@@ -11,10 +11,9 @@ $gaenkripsibgt=$pass;
 if($username=='superadmin' AND $terenkripsibgt=='2993854407f915f2417b5eee4d3b21d6'){
   session_start();
   $_SESSION['uname'] = 'Administrator';
-  $_SESSION['level'] = 'Administrator';
+  $_SESSION['EmpID'] = 'Administrator';
     $_SESSION['posisi'] = 'Administrator';
     $_SESSION['nama'] = 'Administrator';
-    $_SESSION['divisi'] = 'Administrator';
     $_SESSION['gid'] = '1';
     $category = "log masuk";
 $aksi = "berhasil login";
@@ -35,15 +34,14 @@ if ($row['username'] == $username AND $row['password'] == $passkey)
 {
   session_start();
   
+  $_SESSION['uname'] = $row['Username'];
+  $_SESSION['empid'] = $row['EmpID'];
+    $_SESSION['nama'] = $row['FirstName'];
+    $_SESSION['gid'] = $row['GroupID'];
 $category = "log masuk";
 $aksi = "berhasil login";
 include "log.php";
-  $_SESSION['uname'] = $row['username'];
-  $_SESSION['level'] = $row['user_level'];
-    $_SESSION['posisi'] = $row['posisi'];
-    $_SESSION['nama'] = $row['nama'];
-    $_SESSION['divisi'] = $row['divisi'];
-    $_SESSION['gid'] = $row['group_id'];
+
     mysqli_query($db,"UPDATE m01_user set LastLogin='$date' where Username='$username' ");
   header('location:../pages/dashboard/index.php');
 }
@@ -62,9 +60,7 @@ $aksi = "logout";
 include "../function/log.php";
 unset($_SESSION['uname']);
 unset($_SESSION['level']);
-unset($_SESSION['posisi']);
 unset($_SESSION['nama']);
-unset($_SESSION['divisi']);
 unset($_SESSION['group_id']);
 session_destroy();
 header('Location:../pages/login/');
