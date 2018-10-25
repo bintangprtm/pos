@@ -11,11 +11,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
--- Dumping database structure for bkstechpos
-CREATE DATABASE IF NOT EXISTS `bkstechpos` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `bkstechpos`;
-
 -- Dumping structure for table bkstechpos.item
 CREATE TABLE IF NOT EXISTS `item` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
@@ -26,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `item` (
 
 -- Dumping data for table bkstechpos.item: ~25 rows (approximately)
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
-INSERT INTO `item` (`ID`, `Name`, `Price`) VALUES
+REPLACE INTO `item` (`ID`, `Name`, `Price`) VALUES
 	(1, 'Coca-Cola', '4'),
 	(2, 'Fanta', '3'),
 	(3, 'Potato Chips', '18'),
@@ -65,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `m01_groupauthority` (
 
 -- Dumping data for table bkstechpos.m01_groupauthority: ~4 rows (approximately)
 /*!40000 ALTER TABLE `m01_groupauthority` DISABLE KEYS */;
-INSERT INTO `m01_groupauthority` (`ID`, `Name`, `IsActive`, `Flag`) VALUES
+REPLACE INTO `m01_groupauthority` (`ID`, `Name`, `IsActive`, `Flag`) VALUES
 	(1, 'Superadmin', 1, 1),
 	(2, 'Admin', 1, 1),
 	(3, 'Manager', 1, 1),
@@ -87,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `m01_groupprivileges` (
 
 -- Dumping data for table bkstechpos.m01_groupprivileges: ~48 rows (approximately)
 /*!40000 ALTER TABLE `m01_groupprivileges` DISABLE KEYS */;
-INSERT INTO `m01_groupprivileges` (`ID`, `GroupID`, `MenuID`, `Permission`, `CreateBy`, `CreateAt`, `UpdateBy`, `UpdateAt`) VALUES
+REPLACE INTO `m01_groupprivileges` (`ID`, `GroupID`, `MenuID`, `Permission`, `CreateBy`, `CreateAt`, `UpdateBy`, `UpdateAt`) VALUES
 	(1, 1, 1, 1, 'Superadmin', '0000-00-00 00:00:00', 'Administrator', '2018-10-15 23:23:32'),
 	(2, 1, 2, 1, 'Superadmin', '0000-00-00 00:00:00', 'Administrator', '2018-10-15 23:23:32'),
 	(3, 1, 8, 1, 'Superadmin', '0000-00-00 00:00:00', 'Administrator', '2018-10-15 23:23:47'),
@@ -151,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `m01_loghistory` (
 
 -- Dumping data for table bkstechpos.m01_loghistory: ~41 rows (approximately)
 /*!40000 ALTER TABLE `m01_loghistory` DISABLE KEYS */;
-INSERT INTO `m01_loghistory` (`id`, `log`, `user`, `timestamp`, `category`, `group`) VALUES
+REPLACE INTO `m01_loghistory` (`id`, `log`, `user`, `timestamp`, `category`, `group`) VALUES
 	(4, 'Administrator telah logout dari ip ::1', 'Administrator', '2018-10-13 00:36:56', 'log masuk', ''),
 	(5, 'bintang telah gagal login dari ip ::1', 'bintang', '2018-10-13 00:37:22', 'log masuk', ''),
 	(6, 'superadmin telah berhasil login dari ip ::1', 'superadmin', '2018-10-13 00:37:34', 'log masuk', ''),
@@ -207,7 +202,7 @@ CREATE TABLE IF NOT EXISTS `m01_menusystem` (
 
 -- Dumping data for table bkstechpos.m01_menusystem: ~12 rows (approximately)
 /*!40000 ALTER TABLE `m01_menusystem` DISABLE KEYS */;
-INSERT INTO `m01_menusystem` (`ID`, `Description`, `ParentID`, `IconCode`, `LinkPage`) VALUES
+REPLACE INTO `m01_menusystem` (`ID`, `Description`, `ParentID`, `IconCode`, `LinkPage`) VALUES
 	(1, 'Dashboard', 0, 'fa fa-home nav_icon', 'index.php'),
 	(2, 'Front End', 0, 'fa fa-shopping-cart  nav_icon', 'index.php?page=frontend'),
 	(3, 'Inventory', 0, 'fa fa-file  nav_icon', '#'),
@@ -246,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `m01_user` (
 
 -- Dumping data for table bkstechpos.m01_user: ~2 rows (approximately)
 /*!40000 ALTER TABLE `m01_user` DISABLE KEYS */;
-INSERT INTO `m01_user` (`ID`, `EmpID`, `Username`, `Password`, `FirstName`, `LastName`, `Email`, `AuthorityID`, `GroupID`, `LastLogin`, `CreateBy`, `CreateAt`, `UpdateBy`, `UpdateAt`, `isActive`, `Flag`) VALUES
+REPLACE INTO `m01_user` (`ID`, `EmpID`, `Username`, `Password`, `FirstName`, `LastName`, `Email`, `AuthorityID`, `GroupID`, `LastLogin`, `CreateBy`, `CreateAt`, `UpdateBy`, `UpdateAt`, `isActive`, `Flag`) VALUES
 	(1, 'BK009596', 'Laras', 'c56d0e9a7ccec67b4ea131655038d604', 'Laras', 'Pio', 'laras@bkstech.net', '1', 1, '0', '0', '2018-09-09 00:00:00', '0', '2018-09-09 00:00:00', 0, 0),
 	(2, 'BK009598', 'Bintang', 'c56d0e9a7ccec67b4ea131655038d604', 'Bintang', 'Gejora', 'bintangp@bkstech.net', '2', 2, '0', '0', '2018-09-09 18:25:42', '0', '2018-10-09 05:02:59', 0, 0);
 /*!40000 ALTER TABLE `m01_user` ENABLE KEYS */;
@@ -265,7 +260,7 @@ CREATE TABLE IF NOT EXISTS `m02_general` (
 
 -- Dumping data for table bkstechpos.m02_general: ~1 rows (approximately)
 /*!40000 ALTER TABLE `m02_general` DISABLE KEYS */;
-INSERT INTO `m02_general` (`ID`, `Curency`, `TimeZone`, `CreatedBy`, `CreatedAt`, `UpdatedAt`, `UpdatedBy`) VALUES
+REPLACE INTO `m02_general` (`ID`, `Curency`, `TimeZone`, `CreatedBy`, `CreatedAt`, `UpdatedAt`, `UpdatedBy`) VALUES
 	(1, 'IDR', 'Asia/Jakarta', 'Administrator', '2018-10-15 23:38:33', '2018-10-15 23:38:33', 'Administrator');
 /*!40000 ALTER TABLE `m02_general` ENABLE KEYS */;
 
@@ -323,7 +318,7 @@ CREATE TABLE IF NOT EXISTS `m02_stock` (
 
 -- Dumping data for table bkstechpos.m02_stock: ~2 rows (approximately)
 /*!40000 ALTER TABLE `m02_stock` DISABLE KEYS */;
-INSERT INTO `m02_stock` (`STOCKID`, `CATEGORY`, `BRAND`, `MODEL`, `STKGROUP`, `DESCRIP1`, `DESCRIP2`, `ISSTOCK`, `STOCKNO`, `PARTNO`, `TYPE`, `ONHAND`, `ONORDER`, `MINONHAND`, `MAXONHAND`, `REORDQTY`, `POSPrice`, `POSQty`, `POSCost`, `POSDiscPct`, `POSDiscAmt`, `POSMemDiscPct`, `POSMemDiscAmt`, `POSGstInclusive`, `POSLabel1`, `POSLabel2`, `POSLabel3`, `POSDisplayLabel`, `POSPICTURE`, `POSNotes`, `POSQtyDiscYN`, `POSDiscQty`, `POSDiscPrice`, `POSQtyYN`, `POSPriceYN`, `ManualIte`, `POSDescriptionYN`, `BarCode`, `chkMinOnHand`, `ItemStatus`, `POSDiscYN`, `POSDiscountableYN`, `CreateAt`, `UpdateBy`, `UpdateAt`, `isActive`, `Flag`) VALUES
+REPLACE INTO `m02_stock` (`STOCKID`, `CATEGORY`, `BRAND`, `MODEL`, `STKGROUP`, `DESCRIP1`, `DESCRIP2`, `ISSTOCK`, `STOCKNO`, `PARTNO`, `TYPE`, `ONHAND`, `ONORDER`, `MINONHAND`, `MAXONHAND`, `REORDQTY`, `POSPrice`, `POSQty`, `POSCost`, `POSDiscPct`, `POSDiscAmt`, `POSMemDiscPct`, `POSMemDiscAmt`, `POSGstInclusive`, `POSLabel1`, `POSLabel2`, `POSLabel3`, `POSDisplayLabel`, `POSPICTURE`, `POSNotes`, `POSQtyDiscYN`, `POSDiscQty`, `POSDiscPrice`, `POSQtyYN`, `POSPriceYN`, `ManualIte`, `POSDescriptionYN`, `BarCode`, `chkMinOnHand`, `ItemStatus`, `POSDiscYN`, `POSDiscountableYN`, `CreateAt`, `UpdateBy`, `UpdateAt`, `isActive`, `Flag`) VALUES
 	(1, 'FRUIT', NULL, NULL, NULL, 'BEET ROOT', NULL, 1, NULL, NULL, NULL, 50.0000, NULL, 5.0000, 100.0000, NULL, 2.5000, NULL, 1.5000, NULL, NULL, NULL, NULL, '1', 'BEET ROOT', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '1', '1', '1', '0563684', 1, NULL, '0', NULL, '2018-09-09 00:00:00', '0', '2018-09-09 00:00:00', 1, 1),
 	(2, 'Drink', 'Coke', NULL, NULL, 'Coca Cola', NULL, 1, NULL, NULL, NULL, 1500.0000, NULL, 120.0000, 5000.0000, 250.0000, 5.0000, NULL, 2.0000, NULL, NULL, NULL, NULL, NULL, 'COLA', NULL, NULL, NULL, '../../resources/Images/cocacola.jpg', NULL, 0, 0, 0.00, '0', '0', '0', '1', '456456', NULL, NULL, NULL, NULL, '2018-09-09 00:00:00', '0', '2018-09-09 00:00:00', 1, 1);
 /*!40000 ALTER TABLE `m02_stock` ENABLE KEYS */;
@@ -342,7 +337,7 @@ CREATE TABLE IF NOT EXISTS `m02_terminal` (
 
 -- Dumping data for table bkstechpos.m02_terminal: ~1 rows (approximately)
 /*!40000 ALTER TABLE `m02_terminal` DISABLE KEYS */;
-INSERT INTO `m02_terminal` (`ID`, `TypeFrontEnd`, `PrinterSet`, `CreatedBy`, `CreatedAt`, `UpdatedBy`, `UpdatedAt`) VALUES
+REPLACE INTO `m02_terminal` (`ID`, `TypeFrontEnd`, `PrinterSet`, `CreatedBy`, `CreatedAt`, `UpdatedBy`, `UpdatedAt`) VALUES
 	(1, 'Store', 'HP DeskJet', 'Administrator', '2018-10-15 23:45:50', 'Administrator', '2018-10-17 20:31:05');
 /*!40000 ALTER TABLE `m02_terminal` ENABLE KEYS */;
 
