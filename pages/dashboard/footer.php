@@ -91,7 +91,31 @@ $(function(){
 
 });
 
-   });      </script>
+   });     
+
+
+   $(function(){
+
+   $('.sss').click(function(){
+      var essay_id = $(this).attr('id');
+
+       $.ajax({
+          type : 'post',
+           url : 'cart.php', // in here you should put your query 
+          data :  'post_id='+ essay_id, // here you pass your id via ajax .
+                     // in php you should use $_POST['post_id'] to get this value 
+       success : function(r)
+           {
+              // now you can show output in your modal 
+              $('#cart').show();  // put your modal id 
+             $('.cartss').show().html(r);
+           }
+    });
+
+
+});
+
+   }); </script>
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->

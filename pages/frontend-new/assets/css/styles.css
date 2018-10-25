@@ -9,11 +9,20 @@
 button, input {
   margin-top:4px;
 }
+.frml{
+  width: 100px;  height: 100px;float: right;margin: 0px 19px 0px -15px;
 
+}
 img {
   margin:10px 10px 10px 10px;
   width: 100px;
   height: 100px;
+}
+.img-input {
+  max-width: 80px;
+max-height: 70px;
+margin: 5px 20px;
+border-radius: 15px;
 }
 
 .btn:not(:disabled):not(.disabled) {

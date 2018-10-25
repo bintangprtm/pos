@@ -7,6 +7,7 @@
     <title>frondend</title>
     <link rel="stylesheet" href="../../pages/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../pages/frontend-new/assets/css/styles.css">
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="../../sources/fontawesome/css/all.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 </head>
@@ -45,7 +46,7 @@
                     <div class="row-in col-40 mg-top-5">
                         <p> Transaction</p>
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table" id="cart">
                                 <thead>
                                     <tr>
                                         <th class="th-header">Item Name</th>
@@ -53,7 +54,7 @@
                                         <th class="th-header">Price</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="cartss">
                                     <tr>
                                         <td>Coca-Cola</td>
                                         <td>2</td>
@@ -116,36 +117,14 @@
                          <button class="btn btn-primary">Next <i class="fa fa-angle-double-right"></i>
                          </button>
 <div class="item">
-                         <img src="../../sources/images/bread.jpg"/>
-                         <img src="../../sources/images/cola.jpg"/>
-                         <img src="../../sources/images/snack.jpg"/>
-                         <img src="../../sources/images/cookies.jpg"/>
-                         <img src="../../sources/images/corona.jpg"/>
-
-                         <img src="../../sources/images/corona.jpg"/>
-                         <img src="../../sources/images/bread.jpg"/>
-                         <img src="../../sources/images/cola.jpg"/>
-                         <img src="../../sources/images/snack.jpg"/>
-                         <img src="../../sources/images/cookies.jpg"/>
-
-                         <img src="../../sources/images/cookies.jpg"/>
-                         <img src="../../sources/images/corona.jpg"/>
-                         <img src="../../sources/images/bread.jpg"/>
-                         <img src="../../sources/images/cola.jpg"/>
-                         <img src="../../sources/images/snack.jpg"/>
-
-                         <img src="../../sources/images/snack.jpg"/>
-                         <img src="../../sources/images/cookies.jpg"/>
-                         <img src="../../sources/images/corona.jpg"/>
-                         <img src="../../sources/images/bread.jpg"/>
-                         <img src="../../sources/images/cola.jpg"/>
-
-                         <img src="../../sources/images/cola.jpg"/>
-                         <img src="../../sources/images/snack.jpg"/>
-                         <img src="../../sources/images/cookies.jpg"/>
-                         <img src="../../sources/images/corona.jpg"/>
-                         <img src="../../sources/images/bread.jpg"/>
-</div>
+    <?php 
+include '../../function/db.php';
+$query=mysqli_query($db,"SELECT * FROM item");
+while($data=mysqli_fetch_array($query)){
+    ?>
+                   
+<a class="sss" id="<?php echo $data[ID];?>" href="#">    <img src="../../sources/images/<?php echo $data[ID]; ?>.jpg"></a>
+                         <?php } ?>
                      </div>
                  </div>
 
@@ -183,6 +162,30 @@
     <div class="row spacer"></div>
     <div></div>
     <script src="assets/js/jquery.min.js"></script>
+<script>
+   $(function(){
+
+   $('.push').click(function(){
+      var essay_id = $(this).attr('id');
+
+       $.ajax({
+          type : 'post',
+           url : 'cart.php', // in here you should put your query 
+          data :  'post_id='+ essay_id, // here you pass your id via ajax .
+                     // in php you should use $_POST['post_id'] to get this value 
+       success : function(r)
+           {
+              // now you can show output in your modal 
+              $('#cart').show();  // put your modal id 
+             $('.cartss').show().html(r);
+           }
+    });
+
+
+});
+
+   });
+</script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
