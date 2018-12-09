@@ -35,6 +35,8 @@ include "../frontend-market/index.php";
   include "editgeneral.php";
 }elseif($page=='editprvl'){
   include "authority.php";
+}elseif($page=='menu'){
+  include "menusystem.php";
 }else{
 
       ?>

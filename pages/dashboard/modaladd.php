@@ -171,3 +171,67 @@
          
         </div>
          <!-- /.modal-user -->
+<!-- Modal Menu -->
+         <div class="modal fade" id="modal-menu">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+           Add Menu
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+              
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal" method="POST" action="../../function/menu.php?service=add">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="name" class="col-sm-2 control-label">Menu Description</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="description" placeholder="Menu Description">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="flag" class="col-sm-2 control-label">Parrent</label>
+
+                  <div class="col-sm-10">
+                    <select name="parentid" class="form-control select">
+<?php $query=mysqli_query($db,"SELECT * FROM m01_menusystem where ParentID='0' AND LinkPage='#'");
+while ($parent=mysqli_fetch_array($query)) {
+?>
+
+<option value="<?php echo $parent[ID]; ?>"><?php echo $parent[Description]; ?></option>
+
+<?php } ?>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="iconcode" class="col-sm-2 control-label">Icon Code</label>
+  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="iconcode" placeholder="Icon Code">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="linkpage" class="col-sm-2 control-label">LinkPage</label>
+  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="linkpage" placeholder="Link Page">
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
+
+            </form>
+              </div>
+              
+            </div>
+
+          </div>
+         
+        </div>
